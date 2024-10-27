@@ -5,26 +5,9 @@ block content
   
   section#team.pb-5
     .container
-      h5.section-title.h1 Display
+      h5.section-title.h1= pageHeader.title
+      small &nbsp;#{pageHeader.strapline}
       .row
-      each book in booklist
         .col-xs-12.col-sm-6.col-md-4
-          .image-flip(ontouchstart="this.classList.toggle('hover');")
-            .mainflip              
-              .backside
-                .card
-                  .card-body.text-center.mt-4
-                    h4.card-title 
-                      a(href="/book")= book.name
-                    p.card-text
-                      | book.synopsis
-                    ul.list-inline
-                      li.list-inline-item
-                        book.author
-                        each genre in book.genre
-                          span.badge.badge-warning= genre
-                      .card-body.text-center
-                    a.btn.btn-primary.btn-sm(href='#')
-                      i.fa.fa-plus
        
 
