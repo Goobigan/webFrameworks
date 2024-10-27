@@ -3,21 +3,26 @@ extends layout
 include _includes/sharedHTMLfunctions
 
 block content
-
-  each book in books
-    .image-flip(ontouchstart="this.classList.toggle('hover');")
-      .mainflip              
-        .backside
-          .card
-            .card-body.text-center.mt-4
-              h4.card-title 
-                a(href="/book")= book.name
-              p.synopsis= book.synopsis
-              ul.list-inline
-                li.list-inline-item= book.author
-                .genres
-                  //each genre in book.genres
-                    span.badge.badge-warning= genre
-                small &nbsp;
-                +outputRating(book.rating)
-              
+  section#team.pb-5
+    .container
+      h5.section-title.h1= pageHeader.title
+      small &nbsp;#{pageHeader.strapline}
+    .row
+      each book in books
+        .col-xs-12.col-sm-6.col-md-3
+          .image-flip(ontouchstart="this.classList.toggle('hover');")
+            .mainflip              
+              .backside
+                .card
+                  .card-body.text-center.mt-4
+                    h4.card-title 
+                      a(href="/book")= book.name
+                    p.synopsis= book.synopsis
+                    ul.list-inline
+                      li.list-inline-item= book.author
+                      .genres
+                        each genre in book.genres
+                          span.badge.badge-warning= genre
+                      small &nbsp;
+                      +outputRating(book.rating)
+                      

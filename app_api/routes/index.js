@@ -7,5 +7,5 @@ const ctrlOthers = require('../controllers/others');
 //router.get('/', ctrlOthers.index);
 router.get('/Register', ctrlLocations.Register);
 router.get('/SignIn', ctrlLocations.SignIn);
-router.get('/Display',ctrlLocations.Display);
+router.get('/books',ctrlLocations.books);
 module.exports = router;

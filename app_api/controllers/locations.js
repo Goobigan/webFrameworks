@@ -7,12 +7,12 @@ const Register = function(req, res){
     res.render('signin', { title: 'Sign In' });
   };
 
-  const Display = function(req, res){
-    res.render('Display', 
+  const books = function(req, res){
+    res.render('books', 
       {
           title: 'BookShelf',
           pageHeader: {
-          title: 'BookShelf',
+          title: 'Books',
           strapline: 'Review all of your favourite novels!'
           },
           books: [
@@ -44,5 +44,5 @@ const Register = function(req, res){
 
   
   module.exports = {
-    Register, SignIn, Display
+    Register, SignIn, books
   };
