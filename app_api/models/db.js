@@ -43,7 +43,7 @@ process.on('SIGTERM', () => {
   });
 });
 
-require('./locations');
+require('./books');
 function getData(){
     mongoose.Collection.find("Select * from books");
 }
