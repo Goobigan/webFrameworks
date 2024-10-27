@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet')
+    script(src='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet')
+    script(src='//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  body
+  nav.navbar.navbar-icon-top.navbar-expand-lg.navbar-dark.bg-dark
+    a.navbar-brand(href='/Register') BookShelf
+    //- button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+    //-   span.navbar-toggler-icon
+    //- #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        a.nav-link(href='/Register')
+          i.fa.fa-home
+          |           Register
+          span.sr-only (current)
+      li.nav-item
+        a.nav-link(href='/SignIn')
+          i.fa.fa-home
+          |           Sign In
+      li.nav-item
+        a.nav-link(href='/Display')
+          i.fa.fa-home
+          |           Display
+        
+  block content

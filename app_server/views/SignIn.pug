@@ -1,0 +1,17 @@
+extends layout
+
+block content
+
+  .container.register-form
+    .form
+      .note
+        p This is a simple SignIn Form made using Boostrap.
+      .form-content
+        .row
+          .col-sm-4
+            .form-group
+              input.form-control(type='text' placeholder='Username *' value='')
+            .form-group
+              input.form-control(type='text' placeholder='Password *' value='')
+        button.btnSubmit(type='button') Submit
+
