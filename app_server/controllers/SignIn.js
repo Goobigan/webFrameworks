@@ -2,7 +2,7 @@ const request = require('request');
 const apiOptions = {server: 'http://localhost:3000'}
 
 if (process.env.NODE_ENV === 'production') {
-  apiOptions.server = ' https://wsrender.onrender.com;'
+  apiOptions.server = 'https://webframeworks-cuwx.onrender.com';
 }
 
   const loadSignInPage = function(req, res,func){
