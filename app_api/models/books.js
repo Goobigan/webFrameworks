@@ -1,23 +1,7 @@
 const mongoose = require('mongoose');
 
-
-const reviewSchema = new mongoose.Schema({
-  author: String,
-  rating: {
-    type: Number,
-    required: true,
-    min: 0,
-    max: 5
-  },
-  reviewText: String,
-  createdOn: {
-    type: Date,
-    'default': Date.now
-  }
-});
-
 const booksSchema = new mongoose.Schema({
-  name: {
+  bookName: {
     type: String,
     required: true
   },
@@ -26,14 +10,9 @@ const booksSchema = new mongoose.Schema({
     required: true
   },
   synopsis: String,
-  rating: {
-    type: Number,
-    'default': 0,
-    min: 0,
-    max: 5
-  },
-  genres: [String],
-  reviews: [reviewSchema]
-});
+  Genres: [String]
+},{collection: 'books'});
 
-mongoose.model('books', booksSchema);
+const booksModel = mongoose.model('books', booksSchema);
+
+module.exports = booksModel;

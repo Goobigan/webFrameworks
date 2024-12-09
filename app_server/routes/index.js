@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const ctrlLocations = require('../controllers/books');
-const ctrlOthers = require('../controllers/others');
+const ctrlBooks = require('../controllers/books');
+const ctrlSignIn = require('../controllers/SignIn');
+const ctrlRegister = require('../controllers/Register');
 
-/* GET home page. */
-//router.get('/', ctrlOthers.index);
-router.get('/Register', ctrlLocations.Register);
-router.get('/SignIn', ctrlLocations.SignIn);
-router.get('/books',ctrlLocations.books);
+
+router.get('/Register', ctrlRegister.Register);
+router.get('/SignIn', ctrlSignIn.SignIn);
+router.get('/books',ctrlBooks.books);
+
 module.exports = router;

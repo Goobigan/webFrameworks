@@ -5,20 +5,19 @@ if (process.env.NODE_ENV === 'production') {
   apiOptions.server = ' https://wsrender.onrender.com;'
 }
 
-  const loadBooksPage = function(req, res,func){
-    res.render('books', 
+  const loadSignInPage = function(req, res,func){
+    res.render('signin', 
       {
-          title: 'BookShelf',
+          title: 'Sign In',
           pageHeader: {
-          title: 'Books',
-          strapline: 'Review all of your favourite novels!'
+          title: 'Sign In',
           },
-          books: func
+          signin: func
       });
   };
 
-  const books = function(req, res){
-    const path = '/api/books';
+  const SignIn = function(req, res){
+    const path = '/api/accounts';
     const requestOptions = {
         url : apiOptions.server + path,
         method: 'GET',
@@ -30,10 +29,10 @@ if (process.env.NODE_ENV === 'production') {
             console.error(err);
             return res.status(500).json({ error: 'Internal Server Error' });
         }
-        loadBooksPage(req, res, body);
+        loadSignInPage(req, res, body);
     });
 };
 
 module.exports = {
-   loadBooksPage,books
-  };
+  loadSignInPage,SignIn
+};

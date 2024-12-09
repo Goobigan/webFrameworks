@@ -1,49 +1,18 @@
 const mongoose = require('mongoose');
-const dbURI = "mongodb+srv://djmccarthy:djmac2001@bookshelfcluster.vt0uv.mongodb.net/?retryWrites=true&w=majority&appName=BookShelfCluster";
+const dbURI = "mongodb+srv://djmccarthy:djmac2001@bookshelfcluster.vt0uv.mongodb.net/BookShelf_db?retryWrites=true&w=majority&appName=BookShelfCluster";
 
 
-if (process.env.NODE_ENV === 'production') {
-  dbURI = process.env.MONGODB_URI;
+try {
+  mongoose.connect(
+    dbURI,
+    { useNewUrlParser: true, useUnifiedTopology: true }).then(
+    () => {console.log(" Mongoose is connected")},
+      err=> {console.log(err)}
+    );
 }
-mongoose.connect(dbURI);
-
-mongoose.connection.on('connected', () => {
-  console.log(`Mongoose connected to ${dbURI}`);
-});
-mongoose.connection.on('error', err => {
-  console.log('Mongoose connection error:', err);
-});
-mongoose.connection.on('disconnected', () => {
-  console.log('Mongoose disconnected');
-});
-
-const gracefulShutdown = (msg, callback) => {
-  mongoose.connection.close( () => {
-    console.log(`Mongoose disconnected through ${msg}`);
-    callback();
-  });
-};
-
-// For nodemon restarts                                 
-process.once('SIGUSR2', () => {
-  gracefulShutdown('nodemon restart', () => {
-    process.kill(process.pid, 'SIGUSR2');
-  });
-});
-// For app termination
-process.on('SIGINT', () => {
-  gracefulShutdown('app termination', () => {
-    process.exit(0);
-  });
-});
-// For Heroku app termination
-process.on('SIGTERM', () => {
-  gracefulShutdown('Heroku app shutdown', () => {
-    process.exit(0);
-  });
-});
-
+catch (e) {
+  console.log("could not connect");
+}
 require('./books');
-function getData(){
-    mongoose.Collection.find("Select * from books");
-}
+require('./accounts');
+mongoose.connect(dbURI);
