@@ -5,8 +5,6 @@ const ctrlBooks = require('../controllers/books');
 const ctrlAccounts = require('../controllers/accounts');
 const Account = require('../models/accounts');
 
-/* GET home page. */
-//router.get('/', ctrlOthers.index);
 router
     .route('/Register')
     .get(ctrlAccounts.accountsLogin);

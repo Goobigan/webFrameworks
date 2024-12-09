@@ -4,7 +4,7 @@ const Books = mongoose.model('books');
 const booksList = async function (req, res) {
   console.log("Fetching books...");
   try {
-      const books = await Books.find({});
+      const books = await Books.find({}).maxTimeMS(20);   //added maxTimeMs due to timeout issue during stormy weather
       
       if (books.length === 0) {
           return res.status(404).json({ "message": "No books available" });
